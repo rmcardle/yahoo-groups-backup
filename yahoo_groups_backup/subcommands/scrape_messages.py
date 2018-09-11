@@ -48,10 +48,10 @@ def command(arguments):
             continue
 
         msg = scraper.get_message(cur_message)
-        db.upsert_message(cur_message, msg)
         if not msg:
             eprint("Message #%s is missing" % (cur_message,))
         else:
+            db.upsert_message(cur_message, msg)
             eprint("Inserted message #%s by %s/%s/%s" % (
                 cur_message,
                 msg['authorName'], msg['profile'], msg['from']))

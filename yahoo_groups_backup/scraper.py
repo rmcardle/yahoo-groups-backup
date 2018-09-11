@@ -179,6 +179,8 @@ class YahooBackupScraper:
             raise RuntimeError("Unexpected error:\n\n%s" % json.dumps(formatted))
 
         raw = self._load_json_url(url + "/raw")
+        if 'ygData' not in raw:
+            return False
 
         data = formatted['ygData']
         data['rawEmail'] = raw['ygData']['rawEmail']
