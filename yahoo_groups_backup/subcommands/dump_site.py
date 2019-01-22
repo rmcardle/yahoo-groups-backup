@@ -34,6 +34,7 @@ import yaml
 
 from yahoo_groups_backup.logging import eprint
 from yahoo_groups_backup import YahooBackupDB, html_from_message, unescape_yahoo_html, redaction
+from yahoo_groups_backup.redaction import Redactions
 
 
 args_schema = schema.Schema({
@@ -123,7 +124,7 @@ angular
         self.page_size = arguments['--msgdb-page-size']
         self.redact_before = arguments['--redact-before']
 
-        self.redactions = []
+        self.redactions = Redactions([])
         if P.exists(arguments['--redactions']):
             self.redactions = redaction.load_redactions(open(arguments['--redactions']))
         elif arguments['--redactions'] != 'redactions.yaml':
