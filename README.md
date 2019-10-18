@@ -12,7 +12,7 @@ You will need:
 
 [pyenv](https://github.com/pyenv/pyenv) or [virtualenv](https://virtualenv.pypa.io/en/stable/) is recommended.
 
-    git clone https://github.com/csaftoiu/yahoo-groups-backup.git
+    git clone https://github.com/rmcardle/yahoo-groups-backup.git
     cd yahoo-groups-backup
     pip install -r requirements.txt
     cp redactions.yaml.template redactions.yaml # edit this file if you want
