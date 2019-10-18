@@ -33,9 +33,10 @@ class YahooBackupScraper:
 
     def _is_login_page(self):
         html = self.br.html
-        eprint("Detecting the log-in page...")
-        # eprint(html)
-        return 'form id="login-username-form"' in html
+        is_login_page = 'form id="login-username-form"' in html
+        if is_login_page:
+            eprint("Detected the log-in page...")
+        return is_login_page
 
     def _process_login_page(self):
         """Process the login page."""
